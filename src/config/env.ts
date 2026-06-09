@@ -10,7 +10,8 @@ import path from "path";
  const config = {
 
     connecting_string : process.env.CONNECTING_STRING as string,
-    port : process.env.PORT
+    port : process.env.PORT,
+    jwt_secret_key : process.env.JWT_SECRET_KEY as string
  }
 
   export default config;
