@@ -43,6 +43,8 @@ const auth = () => {
       });
     }
 
+    req.user = decoded;
+
     next();
   };
 };
