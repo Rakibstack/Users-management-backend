@@ -1,9 +1,3 @@
-method ->GET Uri -> / Time -> 1781058325599
-method ->GET Uri -> / Time -> 1781058374492
-
-method ->GET Uri -> /api/users Time -> 1781058379943
-method ->GET Uri -> /api/users Time -> 1781058444358method ->GET Uri -> /api/users/1 Time -> 1781058450114method ->GET Uri -> /api Time -> 1781058457261
-method ->GET  Uri -> /api Time -> 1781058519066
 
 method ->GET  Uri -> /api/users Time -> 1781058542398
 
@@ -16,3 +10,35 @@ method ->GET  Uri -> /api/users Time -> 1,781,060,343,170
 method ->GET  Uri -> /api/users Time -> 1,781,060,347,476
 
 method ->GET  Uri -> /api/users Time -> 1781060478002
+
+method ->GET  Uri -> /api/users Time -> 1781061542417
+
+method ->GET  Uri -> /api/users Time -> 1781061567985
+
+method ->GET  Uri -> /api/users Time -> 1781061575350
+
+method ->GET  Uri -> /api/users Time -> 1781061595761
+
+method ->GET  Uri -> /api/users/6 Time -> 1781061597128
+
+method ->GET  Uri -> /api/users Time -> 1781061600249
+
+method ->POST  Uri -> /api/auth/login Time -> 1781066413851
+
+method ->GET  Uri -> /api/users Time -> 1781066487480
+
+method ->GET  Uri -> /api/users Time -> 1781066500981
+
+method ->GET  Uri -> /api/users Time -> 1781066519142
+
+method ->GET  Uri -> /api/users Time -> 1781066552434
+
+method ->POST  Uri -> /api/auth/login Time -> 1781092382983
+
+method ->GET  Uri -> /api/users Time -> 1781092583401
+
+method ->GET  Uri -> /api/users Time -> 1781093098579
+
+method ->GET  Uri -> /api/users Time -> 1781093116301
+
+method ->GET  Uri -> /api/users Time -> 1781093198449
