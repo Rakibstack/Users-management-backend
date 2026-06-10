@@ -1,0 +1,18 @@
+method ->GET Uri -> / Time -> 1781058325599
+method ->GET Uri -> / Time -> 1781058374492
+
+method ->GET Uri -> /api/users Time -> 1781058379943
+method ->GET Uri -> /api/users Time -> 1781058444358method ->GET Uri -> /api/users/1 Time -> 1781058450114method ->GET Uri -> /api Time -> 1781058457261
+method ->GET  Uri -> /api Time -> 1781058519066
+
+method ->GET  Uri -> /api/users Time -> 1781058542398
+
+method ->GET  Uri -> /api/users/16 Time -> 1781060287288
+
+method ->GET  Uri -> /api/users/6 Time -> 1,781,060,336,752
+
+method ->GET  Uri -> /api/users Time -> 1,781,060,343,170
+
+method ->GET  Uri -> /api/users Time -> 1,781,060,347,476
+
+method ->GET  Uri -> /api/users Time -> 1781060478002
