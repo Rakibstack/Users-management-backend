@@ -3,49 +3,67 @@ import jwt, { type JwtPayload } from "jsonwebtoken";
 import config from "../config/env";
 import { pool } from "../db";
 
-const auth = () => {
+ type Role = "admin" | "agent" | "user";
+
+const auth = (...roles: Role[]) => {
   return async (req: Request, res: Response, next: NextFunction) => {
-    const token = req.headers.authorization;
+    try {
+      const token = req.headers.authorization;
 
-    if (!token) {
-      res.status(401).json({
-        success: false,
-        message: "unauthorized access!",
-      });
-      return;
-    }
-    const decoded = jwt.verify(
-      token as string,
-      config.jwt_secret_key,
-    ) as JwtPayload;
+      if (!token) {
+        res.status(401).json({
+          success: false,
+          message: "unauthorized access!",
+        });
+        return;
+      }
+      const decoded = jwt.verify(
+        token as string,
+        config.jwt_secret_key,
+      ) as JwtPayload;
 
-    const userData = await pool.query(
-      `
+      const userData = await pool.query(
+        `
        SELECT * FROM users WHERE email = $1 
         `,
-      [decoded.email],
-    );
+        [decoded.email],
+      );
 
-    if (userData.rows.length === 0) {
-      res.status(404).json({
+      if (userData.rows.length === 0) {
+        res.status(404).json({
+          success: false,
+          message: "User Not Found",
+        });
+        return;
+      }
+
+      const user = userData.rows[0];
+
+      if (!user.is_active) {
+        res.status(403).json({
+          success: false,
+          message: "Forbidden Access!",
+        });
+        return;
+      }
+
+      if (roles.length && !roles.includes(user.role)) {
+        res.status(403).json({
+          success: false,
+          message: "Forbidden Access!",
+        });
+        return;
+      }
+
+      req.user = decoded;
+
+      next();
+    } catch (error) {
+      res.status(500).json({
         success: false,
-        message: "User Not Found",
-      });
-      return;
-    }
-
-    const user = userData.rows[0];
-
-    if (!user.is_active) {
-      res.status(403).json({
-        success: false,
-        message: "Forbidden Access!",
+        message: "Internal Server Error",
       });
     }
-
-    req.user = decoded;
-
-    next();
   };
 };
 
