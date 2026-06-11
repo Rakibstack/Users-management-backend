@@ -3,14 +3,17 @@ import userController from "./user.controller";
 import auth from "../../middleware/auth";
 import { user_Role } from "../../types";
 
- const route = Router();
+const route = Router();
 
- route.post("/", userController.createUser);
+route.post("/", userController.createUser);
 
- route.get("/",auth(user_Role.admin,user_Role.agent),userController.getAllUser );
- route.get('/:id',userController.getSingleUser)
- route.put("/:id",userController.updateUser);
- route.delete("/:id",userController.deleteUser);
+route.get(
+  "/",
+  auth(user_Role.admin, user_Role.agent),
+  userController.getAllUser,
+);
+route.get("/:id", userController.getSingleUser);
+route.put("/:id", userController.updateUser);
+route.delete("/:id", userController.deleteUser);
 
-
- export const userRoute = route;
+export const userRoute = route;

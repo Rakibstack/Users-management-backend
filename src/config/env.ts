@@ -11,7 +11,9 @@ import path from "path";
 
     connecting_string : process.env.CONNECTING_STRING as string,
     port : process.env.PORT,
-    jwt_secret_key : process.env.JWT_SECRET_KEY as string
+    jwt_secret_key : process.env.JWT_SECRET_KEY as string,
+    jwt_refresh_secret_key: process.env.JWT_REFRESH_SECRET_KEY as string,
+    expire_time: process.env.EXPIRE_TIME as string,
  }
 
   export default config;

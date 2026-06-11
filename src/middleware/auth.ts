@@ -3,7 +3,7 @@ import jwt, { type JwtPayload } from "jsonwebtoken";
 import config from "../config/env";
 import { pool } from "../db";
 
- type Role = "admin" | "agent" | "user";
+ type Role = "admin" | "agent";
 
 const auth = (...roles: Role[]) => {
   return async (req: Request, res: Response, next: NextFunction) => {
@@ -59,10 +59,7 @@ const auth = (...roles: Role[]) => {
 
       next();
     } catch (error) {
-      res.status(500).json({
-        success: false,
-        message: "Internal Server Error",
-      });
+      next(error);
     }
   };
 };
